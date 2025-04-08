@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="flex flex-1 self-stretch">
   <head>
     <title><%= content_for(:title) || "Estatesearch Challenge" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -22,8 +22,9 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-blue-200">
-    <main class="container mx-auto mt-28 px-5 flex flex-col items-center">
+  <body class="bg-blue-200 flex w-screen h-screen overflow-hidden flex-col">
+    <%= render "shared/header" %>
+    <main class="container mx-auto px-5 pt-5 flex flex-col flex-1 self-stretch items-center">
       <%= yield %>
     </main>
   </body>
