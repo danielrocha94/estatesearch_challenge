@@ -1,16 +1,32 @@
-<h2>Forgot your password?</h2>
+<div class="w-96 bg-white p-4 border border-gray-200 rounded-xl shadow-md">
+  <div class="flex flex-col items-center flex-1 py-5">
+    <div class="font-satoshiBlack text-xl ">Forgot your password?</div>
+    <div class="text-base font-normal text-gray-600">Please enter your account's email</div>
+  </div>
+  <div class="flex self-stretch mb-4 justify-center">
+    <%= form_for(resource,
+                 as: resource_name,
+                 url: password_path(resource_name),
+                 html: { method: :post, class: "flex flex-col flex-1 self-stretch"}) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="field mb-4">
+        <%= f.email_field :email,
+          autofocus: true,
+          autocomplete: "email",
+          placeholder: "Type in your email",
+          class: "w-full py-3 px-5 rounded-lg border-0 bg-gray-200 focus:bg-white focus:border focus:border-black"
+        %>
+      </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <div class="actions">
+        <%= f.submit "Send me reset password instructions", class: "bg-black text-white w-full rounded-lg p-3 mt-2 hover:cursor-pointer hover:opacity-80 focus:outline-none focus:ring focus:ring-gray-800" %>
+      </div>
+    <% end %>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+  <div class="flex self-stretch justify-around text-center">
+    <%= render "devise/shared/links" %>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
