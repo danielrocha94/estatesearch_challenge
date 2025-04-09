@@ -1,0 +1,33 @@
+<%= turbo_stream_from :flash_messages %>
+<%= turbo_frame_tag :flash_messages do %>
+  <div class="absolute right-3 bottom-5 z-50 w-96">
+    <% flash.map do |type, message| %>
+      <% colorClass = getFlashColorClasses(type) %>
+      <div data-controller='flash-message'
+        class="mb-4"
+        >
+        <div data-flash-message-target="container"
+             class="relative flex flex-row bg-white rounded-lg pl-5 pr-12 py-5 shadow-xl drop-shadow-xl border-l-4 ring-1 ring-gray-200 animate-bounce <%= colorClass[:border] %>">
+          <div data-flash-message-target="close"
+            data-action="click->flash-message#close"
+            class="absolute right-3 top-1 cursor-pointer">
+            <i class="fa-solid fa-times text-gray-400"></i>
+          </div>
+          <div class="flex flex-row items-center">
+            <div class="mr-4">
+              <i class="<%= colorClass[:icon] %> fa-2x"></i>
+            </div>
+            <div class="flex flex-col max-w-80">
+              <div class="<%= colorClass[:titleColor] %> font-satoshiBlack mr-1">
+                <%= colorClass[:title] %>
+              </div>
+              <div>
+                <%= sanitize message %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -4,6 +4,10 @@
     post: @post
   } %>
 
+<%= turbo_stream.append(:flash_messages,
+    partial: 'shared/flash_message',
+    locals: { flash: {success: "Your question has been submitted."}}) %>
+
 <%= turbo_stream.replace :turbo_modal do %>
   <%= turbo_frame_tag :turbo_modal %>
 <% end %>
