@@ -67,3 +67,7 @@ end
 gem "devise", "~> 4.9"
 
 gem "tailwindcss-ruby", "~> 4.1"
+
+gem "font-awesome-sass"
+
+gem "aasm"
