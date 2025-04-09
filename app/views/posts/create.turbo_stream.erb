@@ -1,4 +1,4 @@
-<%= turbo_stream.append :posts,
+<%= turbo_stream.prepend :posts,
   partial: "posts/post",
   locals: {
     post: @post

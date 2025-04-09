@@ -12,7 +12,7 @@
   show: current_user.lawyer? 
 }] %>
 
-<div class="flex self-stretch h-16 shadow drop-shadow items-center px-4 justify-between bg-white">
+<div class="flex self-stretch h-16 min-h-16 shadow drop-shadow items-center px-4 justify-between bg-white">
   <div class="flex flex-1 self-stretch items-center justify-center ">
     <% nav_links.each do |nav_link| %>
       <% next unless nav_link[:show] %>

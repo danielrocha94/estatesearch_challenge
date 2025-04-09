@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @posts = Post.all
+    @posts = Post.search(search_params)
   end
 
   def show
@@ -34,5 +34,9 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post)
       .permit(:title, :body)
+  end
+
+  def search_params
+    {user_id: params[:user_id]}
   end
 end

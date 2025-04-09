@@ -1,4 +1,6 @@
-<div class="w-full flex flex-col items-center">
-  <%= turbo_frame_tag :new_post, src: new_form_posts_path, class: "flex justify-center self-stretch" %>
-  <%= turbo_frame_tag :posts, src: posts_path %>
+<div class="relative max-h-screen w-full flex flex-col items-center">
+  <div class="h-full overflow-y-auto mb-26">
+    <%= turbo_frame_tag :new_post, src: new_form_posts_path, class: "flex justify-center self-stretch" %>
+    <%= turbo_frame_tag :posts, src: posts_path, class: "flex flex-col items-center justify-center self-stretch" %>
+  </div>
 </div>
