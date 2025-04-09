@@ -1,4 +1,56 @@
 <%= render 'shared/turbo_modal' do %>
-  <div class="flex p-2 w-90">
+  <div class="flex flex-col px-2 py-4 w-[600px]">
+    <div class="text-xl text-gray-800 font-satoshiBold flex flex-1 justify-center">
+      <h1>Add a question</h1>
+    </div>
+    <div class="flex items-center flex-row p-2">
+      <div class="rounded-full w-10 h-10 flex items-center justify-center"
+        style="background-color: <%= get_color_from(current_user.email) %>"
+      >
+        <div class="text-white text-xl font-satoshiMedium">
+          <%= current_user.email[0].upcase%>
+        </div>
+      </div>
+      <div class="ml-2">
+        <div class="font-satoshiMedium text-lg text-gray-800">
+          <%= current_user.email %>
+        </div>
+        <div class="text-gray-500">
+          Student
+        </div>
+      </div>
+    </div>
+    <%= form_with(
+          model: @post,
+          url: posts_path
+        ) do |form| %>
+      <div class="mx-2">
+        <div>
+          <%= form.text_field :title,
+            placeholder: "What is your question?",
+            autofocus: true,
+            class: "w-full text-xl font-satoshiBold h-10 text-gray-800"
+          %>
+        </div>
+        <div>
+          <%= form.text_area :body,
+            placeholder: "Write something...",
+            class: "w-full text-gray-700 min-h-28 max-h-56 font-satoshiMedium"
+          %>
+        </div>
+      </div>
+      <div class="border-t border-gray-300 flex justify-end pt-2">
+        <div class="flex">
+          <div
+            class="text-gray-600 font-satoshiBold px-4 py-2 rounded-full hover:bg-gray-200 cursor-pointer"
+            data-action="click->turbo-modal#close"
+          >
+            Cancel
+          </div>
+          <%= submit_tag "Add question",
+            class: "bg-blue-600 rounded-full py-2 px-4 text-white font-satoshiMedium cursor-pointer hover:bg-blue-500" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 <% end %>

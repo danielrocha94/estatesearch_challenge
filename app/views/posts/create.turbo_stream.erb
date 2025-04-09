@@ -1,0 +1,9 @@
+<%= turbo_stream.append :posts,
+  partial: "posts/post",
+  locals: {
+    post: @post
+  } %>
+
+<%= turbo_stream.replace :turbo_modal do %>
+  <%= turbo_frame_tag :turbo_modal %>
+<% end %>
