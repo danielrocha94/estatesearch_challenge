@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :posts
+  resources :posts do
+    collection do
+      get "new_form"
+    end
+  end
 
   get :my_questions, to: "dashboard#my_questions"
   get :my_answers, to: "dashboard#my_answers"

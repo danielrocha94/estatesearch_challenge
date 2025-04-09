@@ -1,2 +1,4 @@
-<%= render "posts/new" %>
-<%= render "posts/index" %>
+<div class="w-full flex flex-col items-center">
+  <%= turbo_frame_tag :new_post, src: new_form_posts_path, class: "flex justify-center self-stretch" %>
+  <%= turbo_frame_tag :posts, src: posts_path %>
+</div>
