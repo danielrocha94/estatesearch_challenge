@@ -1,0 +1,34 @@
+<%= render 'shared/turbo_modal' do %>
+  <div class="flex flex-col px-4 py-4 w-[400px]">
+    <div class="text-xl text-gray-800 font-satoshiBold flex flex-1 justify-center">
+      <h1>Unlock this answer</h1>
+    </div>
+    <div class="flex items-center justify-center flex-row p-2">
+      <div class="rounded-full bg-blue-200 w-28 h-28 border border-blue-400 flex items-center justify-center">
+        <i class="fa-solid fa-lock fa-4x text-blue-500"></i>
+      </div>
+    </div>
+    <div class="flex flex-col items-center justify-center my-2">
+      <div class="text-xl font-satoshiMedium text-gray-800">
+        Proposed fee
+      </div>
+      <div class="text-2xl font-satoshiBlack text-gray-800">
+        £20
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center">
+      <div class="text-md font-satoshiMedium text-gray-400">
+        The content of this post will become available after you unlock this answer.
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-center mt-2">
+      <%= link_to "Pay now",
+        unlock_posts_path(id: @post.id),
+        data: { turbo_method: :post },
+        class: "bg-indigo-500 text-white w-full rounded-md h-12 flex items-center justify-center text-lg font-satoshiBold"
+      %>
+    </div>
+  </div>
+<% end %>

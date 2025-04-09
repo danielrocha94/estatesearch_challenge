@@ -1,28 +1,37 @@
-<% nav_links = [{
-  name: "Home",
-  path: authenticated_root_path,
-  show: true
-}, {
-  name: "My Questions",
-  path: my_questions_path,
-  show: !current_user.lawyer? 
-}, {
-  name: "My Answers",
-  path: my_answers_path,
-  show: current_user.lawyer? 
-}] %>
+<% if current_user.present? %>
+  <% nav_links = [{
+    name: "Home",
+    path: authenticated_root_path,
+    show: true
+  }, {
+    name: "My Questions",
+    path: my_questions_path,
+    show: !current_user.lawyer? 
+  }, {
+    name: "My Answers",
+    path: my_answers_path,
+    show: current_user.lawyer? 
+  }] %>
 
-<div class="flex self-stretch h-16 min-h-16 shadow drop-shadow items-center px-4 justify-between bg-white">
-  <div class="flex flex-1 self-stretch items-center justify-center ">
-    <% nav_links.each do |nav_link| %>
-      <% next unless nav_link[:show] %>
-      <% active = current_page? nav_link[:path] %>
-      <%= link_to nav_link[:path],
-        class: "flex self-stretch items-center px-6 mx-2 cursor-pointer border-b-3 #{active ? "border-blue-400" : "hover:border-gray-300 border-transparent"}" do %>
-        <div class="font-satoshiMedium text-lg">
-          <%= nav_link[:name] %>
+  <div class="flex self-stretch h-16 min-h-16 shadow drop-shadow items-center px-4 justify-between bg-white">
+    <div class="flex flex-1 self-stretch items-center justify-center ">
+      <% nav_links.each do |nav_link| %>
+        <% next unless nav_link[:show] %>
+        <% active = current_page? nav_link[:path] %>
+        <%= link_to nav_link[:path],
+          class: "flex self-stretch items-center px-6 mx-2 cursor-pointer border-b-3 #{active ? "border-blue-400" : "hover:border-gray-300 border-transparent"}" do %>
+          <div class="font-satoshiMedium text-lg">
+            <%= nav_link[:name] %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <div>
+      <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+        <div class="text-blue-500 hover:underline font-satoshiMedium">
+          Log out
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
-</div>
+<% end %>

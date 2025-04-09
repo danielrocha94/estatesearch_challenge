@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_post, only: [:unlock, :pay]
 
   def index
     @posts = Post.search(search_params)
@@ -29,6 +30,19 @@ class PostsController < ApplicationController
   def delete
   end
 
+  def unlock
+    @post.unlock!
+
+    respond_to do |format|
+      if @post.unlocked?
+        format.turbo_stream {}
+      end
+    end
+  end
+
+  def pay
+  end
+
   private
 
   def post_params
@@ -38,5 +52,9 @@ class PostsController < ApplicationController
 
   def search_params
     {user_id: params[:user_id]}
+  end
+
+  def find_post
+    @post = current_user.posts.find(params[:id])
   end
 end

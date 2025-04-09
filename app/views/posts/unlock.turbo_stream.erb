@@ -1,0 +1,13 @@
+<%= turbo_stream.replace @post,
+  partial: "posts/post",
+  locals: {
+    post: @post
+  } %>
+
+<%= turbo_stream.append(:flash_messages,
+    partial: 'shared/flash_message',
+    locals: { flash: {success: "Your question has been unlocked."}}) %>
+
+<%= turbo_stream.replace :turbo_modal do %>
+  <%= turbo_frame_tag :turbo_modal %>
+<% end %>

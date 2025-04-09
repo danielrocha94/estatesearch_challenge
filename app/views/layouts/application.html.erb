@@ -16,6 +16,7 @@
     <link rel="icon" href="/icon.png" type="image/png">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="/icon.png">
+    <script src="https://kit.fontawesome.com/d136be8d5b.js" data-mutate-approach="sync"></script>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -26,7 +27,7 @@
     <%= turbo_frame_tag :turbo_modal %>
     <%= render "shared/flash_message" %>
     <%= render "shared/header" %>
-    <main class="pt-5 flex flex-col flex-1 self-stretch items-center">
+    <main class="pt-5 flex flex-col flex-1 self-stretch items-center justify-center">
       <%= yield %>
     </main>
   </body>

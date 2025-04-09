@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get "new_form"
+      get "pay"
+      post "unlock"
     end
   end
 

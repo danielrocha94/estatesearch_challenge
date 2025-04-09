@@ -1,0 +1,22 @@
+<% if post.locked? %>
+  <div class="mr-2">
+    Locked
+  </div>
+  <%= link_to pay_posts_path(id: post.id), data: {turbo_frame: :turbo_modal}  do %>
+    <div class="flex items-center rounded-full bg-gray-300 h-8 w-16 px-0.5 cursor-pointer">
+      <div class="h-7 w-7 flex items-center justify-center bg-white rounded-full border border-gray-400">
+        <i class="fa-solid fa-lock text-gray-500"></i>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <div class="mr-2 text-blue-600">
+    Unlocked
+  </div>
+
+  <div class="flex items-center justify-end rounded-full bg-blue-200 border border-blue-400 h-8 w-16 px-0.5 cursor-pointer">
+    <div class="h-7 w-7 flex items-center justify-center bg-white rounded-full border border-blue-400">
+      <i class="fa-solid fa-lock text-blue-500"></i>
+    </div>
+  </div>
+<% end %>
