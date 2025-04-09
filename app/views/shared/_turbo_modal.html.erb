@@ -1,0 +1,23 @@
+<%= turbo_frame_tag :turbo_modal do %>
+  <div class="absolute inset-0 flex z-40 justify-center items-center"
+    data-controller="turbo-modal"
+    data-turbo-modal-target="modal"
+  >
+    <div class="flex items-center justify-center">
+      <div class="relative flex flex-col flex-1 bg-white shadow drop-shadow rounded-xl z-10">
+        <div class="absolute right-4 top-4">
+          <div class="px-2 py-1 rounded-md hover:bg-gray-200 cursor-pointer"
+            data-action="click->turbo-modal#close"
+          >
+            <i class="fa-solid fa-close text-blue-900"
+            ></i>
+          </div>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+    <div class="absolute flex flex-1 bg-blue-900 opacity-40 w-full h-full"
+      data-action="click->turbo-modal#close"
+    ></div>
+  </div>
+<% end %>

@@ -23,6 +23,7 @@
   </head>
 
   <body class="bg-blue-200 flex w-screen h-screen overflow-hidden flex-col">
+    <%= turbo_frame_tag :turbo_modal %>
     <%= render "shared/header" %>
     <main class="container mx-auto px-5 pt-5 flex flex-col flex-1 self-stretch items-center">
       <%= yield %>
