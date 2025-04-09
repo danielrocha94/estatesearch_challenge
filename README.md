@@ -1,24 +1,16 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This developer challenge focused on giving users a good experience, it gives the user the ability to create its own account and see their own questions and other user's questions as well
 
-Things you may want to cover:
+It is simulated that any question can be paid for by any user. 
 
-* Ruby version
+It uses Devise for authentication, please create an account to log in.
 
-* System dependencies
+This approach uses a simple, friendly, minimalistic and intuitive UI so that users will have no trouble working with it.
 
-* Configuration
+Due to time restraints, many functionalities were limited and much is still left undone.
 
-* Database creation
+But I hope this project gives a good idea of the general intention on building this application.
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This App is using tailwind, and psql. In order to run locally, it is only needed to run the command: ./bin/dev in the project's root folder
